@@ -1,23 +1,36 @@
 // Go to
-function gotoHome(){
+function gotoHome() {
     window.location = 'home.html';
+}
+function gotoWait() {
+    window.location = 'wait.html';
 }
 
 // ========== Switch Contents ==============
-function showRegister() {  // (index.html)
+function showRegister() {  // (index.php)
     document.querySelector('.login-sec-container').classList.add('d-none');
     document.querySelector('.verification-sec-container').classList.add('d-none');
     document.querySelector('.register-sec-container').classList.remove('d-none');
 }
-function showLogin() {  // (index.html)
+function showLogin() {  // (index.php)
     document.querySelector('.register-sec-container').classList.add('d-none');
     document.querySelector('.verification-sec-container').classList.add('d-none');
     document.querySelector('.login-sec-container').classList.remove('d-none');
 }
 
+function showAdminLogin() { // (admin.php)
+    document.querySelector('.admin-register-sec-container').classList.add('d-none');
+    document.querySelector('.admin-verification-sec-container').classList.add('d-none');
+    document.querySelector('.admin-login-sec-container').classList.remove('d-none');
+}
+function showAdminRegister() {  // (admin.php)
+    document.querySelector('.admin-register-sec-container').classList.remove('d-none');
+    document.querySelector('.admin-verification-sec-container').classList.add('d-none');
+    document.querySelector('.admin-login-sec-container').classList.add('d-none');
+}
 
 // ======== Show Passowrd btns ===============
-function showPwLogin(){ // customer login
+function showPwLogin() { // customer login
     var pw = document.getElementById("l_password");
     var pwicon = document.getElementById("l_password_icon");
 
@@ -29,7 +42,7 @@ function showPwLogin(){ // customer login
         pwicon.className = "bi bi-eye-slash";
     }
 }
-function showPwReg1(){ // customer register
+function showPwReg1() { // customer register
     var pw = document.getElementById("r_password");
     var pwicon = document.getElementById("r_password_icon");
 
@@ -41,7 +54,7 @@ function showPwReg1(){ // customer register
         pwicon.className = "bi bi-eye-slash";
     }
 }
-function showPwReg2(){ // customer register
+function showPwReg2() { // customer register
     var pw = document.getElementById("r_repassword");
     var pwicon = document.getElementById("r_repassword_icon");
 
@@ -53,7 +66,7 @@ function showPwReg2(){ // customer register
         pwicon.className = "bi bi-eye-slash";
     }
 }
-function showPwFp1(){ // forogot pw modal
+function showPwFp1() { // forogot pw modal
     var pw = document.getElementById("fp_password");
     var pwicon = document.getElementById("fp_password_icon");
 
@@ -65,7 +78,7 @@ function showPwFp1(){ // forogot pw modal
         pwicon.className = "bi bi-eye-slash";
     }
 }
-function showPwFp2(){ // forogot pw modal
+function showPwFp2() { // forogot pw modal
     var pw = document.getElementById("fp_repassword");
     var pwicon = document.getElementById("fp_repassword_icon");
 
@@ -82,7 +95,7 @@ function showPwFp2(){ // forogot pw modal
 // =================== (index.html) =====================
 
 // Customer Registration
-function customerRegister(){
+function customerRegister() {
     var fname = document.getElementById("r_fname");
     var lname = document.getElementById("r_lname");
     var email = document.getElementById("r_email");
@@ -97,7 +110,7 @@ function customerRegister(){
     form.append("rpw", repeatPassword.value);
 
     var request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
+    request.onreadystatechange = function () {
         if (request.status == 200 && request.readyState == 4) {
             var response = request.responseText;
             if (response == "success") {
@@ -116,10 +129,10 @@ function customerRegister(){
                     icon: "success",
                     title: "Account Created Successfully ❀˖°"
                 });
-                setTimeout(function() {
+                setTimeout(function () {
                     showVerify(email.value);
                 }, 1500);
-            }else{
+            } else {
                 document.getElementById("msg2").innerHTML = response;
                 document.getElementById("msgdiv2").className = "d-block";
             }
@@ -137,12 +150,12 @@ function showVerify(email) {
     document.getElementById("verify_email").value = email;
 
     var request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
-        if (request.status == 200 && request.readyState == 4){
+    request.onreadystatechange = function () {
+        if (request.status == 200 && request.readyState == 4) {
             var response = request.responseText;
             if (response == "success") {
-                
-            }else {
+
+            } else {
                 document.getElementById("msg2").innerHTML = response;
                 document.getElementById("msgdiv2").className = "d-block";
             }
@@ -161,7 +174,7 @@ function verifyAccount() {
     form.append("vc", vcode.value);
 
     var request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
+    request.onreadystatechange = function () {
         if (request.status == 200 && request.readyState == 4) {
             var response = request.responseText;
             if (response == "success") {
@@ -180,7 +193,7 @@ function verifyAccount() {
                     icon: "success",
                     title: "Account Verified ❀˖°"
                 });
-                setTimeout(function() {
+                setTimeout(function () {
                     gotoHome();
                 }, 1500);
             } else {
@@ -193,7 +206,7 @@ function verifyAccount() {
     request.send(form);
 }
 // Customer Login
-function customerLogin(){
+function customerLogin() {
 
     var email = document.getElementById("l_email");
     var password = document.getElementById("l_password");
@@ -205,8 +218,8 @@ function customerLogin(){
     form.append("rm", rememberMe.checked);
 
     var request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
-        if (request.status == 200 && request.readyState == 4){
+    request.onreadystatechange = function () {
+        if (request.status == 200 && request.readyState == 4) {
             var response = request.responseText;
             if (response == "success") {
                 gotoHome();
@@ -221,10 +234,10 @@ function customerLogin(){
 }
 // forogot password modal
 var forgotPasswordModal;
-function forgotPassword(){
+function forgotPassword() {
     var email = document.getElementById("l_email");
     var request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
+    request.onreadystatechange = function () {
         if (request.status == 200 && request.readyState == 4) {
             var response = request.responseText;
 
@@ -245,7 +258,7 @@ function forgotPassword(){
                     title: "verification code sending",
                     text: "check your mail box"
                 });
-                setTimeout(function() {
+                setTimeout(function () {
                     var modal = document.getElementById("fpModal");
                     forgotPasswordModal = new bootstrap.Modal(modal);
                     forgotPasswordModal.show();
@@ -261,7 +274,7 @@ function forgotPassword(){
     request.send();
 }
 // Customer password reset
-function PasswordReset(){  
+function PasswordReset() {
     var email = document.getElementById("l_email");
     var newPw = document.getElementById("fp_password");
     var rePw = document.getElementById("fp_repassword");
@@ -294,3 +307,140 @@ function PasswordReset(){
     request.send(form);
 }
 // =================== (index.html) =====================
+
+
+
+// ================== (admin.html) =======================
+// admin login
+function adminLogin() {
+    var email = document.getElementById("l_email");
+    var password = document.getElementById("l_password");
+
+    var form = new FormData();
+    form.append("em", email.value);
+    form.append("pw", password.value);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.status == 200 && request.readyState == 4) {
+            var response = request.responseText;
+            if (response == "success") {
+                window.location = 'adminDashboard.html';
+            } else {
+                document.getElementById("msg").innerHTML = response;
+                document.getElementById("msgdiv").className = "d-block";
+            }
+        }
+    }
+    request.open("POST", "adminLoginProcess.php", true);
+    request.send(form);
+}
+// admin register
+function adminRegister() {
+    var name = document.getElementById("r_name");
+    var email = document.getElementById("r_email");
+    var password = document.getElementById("r_password");
+    var repeatpw = document.getElementById("r_repassword");
+
+    var form = new FormData();
+    form.append("name", name.value);
+    form.append("em", email.value);
+    form.append("pw", password.value);
+    form.append("rpw", repeatpw.value);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.status == 200 && request.readyState == 4) {
+            var response = request.responseText;
+            if (response == "success") {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "Admin Registered Successfully ❀˖°"
+                });
+                setTimeout(function () {
+                    showAdminVerify(email.value);
+                }, 1500);
+            } else {
+                document.getElementById("msg2").innerHTML = response;
+                document.getElementById("msgdiv2").className = "d-block";
+            }
+        }
+    }
+    request.open("POST", "adminRegisterProcess.php", true);
+    request.send(form);
+}
+// verify admin account
+function showAdminVerify(email) {
+    document.querySelector('.admin-register-sec-container').classList.add('d-none');
+    document.querySelector('.admin-login-sec-container').classList.add('d-none');
+    document.querySelector('.admin-verification-sec-container').classList.remove('d-none');
+
+    document.getElementById("verify_email").value = email;
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.status == 200 && request.readyState == 4) {
+            var response = request.responseText;
+            if (response == "success") {
+
+            } else {
+                document.getElementById("msg2").innerHTML = response;
+                document.getElementById("msgdiv2").className = "d-block";
+            }
+        }
+    }
+    request.open("GET", "AdminVcodeProcess.php?email=" + email, true);
+    request.send();
+}
+function verifyAdminAccount() {
+    var email = document.getElementById("verify_email");
+    var vcode = document.getElementById("vcode");
+
+    var form = new FormData();
+    form.append("em", email.value);
+    form.append("vc", vcode.value);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.status == 200 && request.readyState == 4) {
+            var response = request.responseText;
+            if (response == "success") {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "Account Verified ❀˖°"
+                });
+                setTimeout(function () {
+                    gotoWait();
+                }, 1500);
+            } else {
+                document.getElementById("msg3").innerHTML = response;
+                document.getElementById("msgdiv3").className = "d-block";
+            }
+        }
+    }
+    request.open("POST", "AdminVerifyProcess.php", true);
+    request.send(form);
+}
+// ================== (admin.html) =======================
