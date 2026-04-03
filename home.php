@@ -15,6 +15,8 @@
 </head>
 
 <body>
+    <!-- header -->
+    <?php include "header.php" ?>
 
     <section class="hero-section-1 w-100">
         <div class="hero-section-1-texts col-6 d-flex justify-content-center align-items-center">
@@ -192,6 +194,9 @@
     <section class="hero-section-2">
         
     </section>
+
+    <!-- footer -->
+    <?php include "footer.php" ?>
 
     <!-- js -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -908,3 +908,201 @@ section{
 .hero-section-2 {
     background-color: white;
 }
+
+/* ================= Header ======================== */
+.header {
+    height: 16vh;
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    border-bottom: 1px solid var(--card-bg);
+    box-shadow: 0px 0px 4px 2px var(--overlay);
+}
+.header-top {
+    height: 3vh;
+    background-color: var(--pink);
+    width: 100%;
+    text-align: center;
+}
+.header-top p{
+    font-size: 85%;
+    color: var(--deep-rose);
+    font-family: 'header';
+}
+.header-center {
+    height: 8vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    align-items: center;
+}
+.header-profile button{
+    border:none;
+    border-radius: 1rem;
+    padding-inline: 20px;
+    height: 2rem;
+    background-color: var(--pink);
+    color: var(--deep-rose);
+    cursor: pointer;
+}
+.header-profile button:hover{
+    box-shadow: 0 0 10px 5px var(--card-bg);
+}
+.header-profile i{
+    color: var(--deep-rose);
+}
+.header-brand-name h1{
+    font-family: 'header';
+    font-weight: 700;
+    color: var(--deep-rose);
+}
+.header-btns button{
+    border:none;
+    padding-inline: 12px;
+    height: 2.5rem;
+    background: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.header-btns i{
+    color: var(--grey);
+}
+.header-btns i:hover{
+    color: var(--hot-pink);
+}
+.header-bottom {
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-bottom button{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 0.7rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    border: none;
+    background: none;
+    color: var(--primary);
+    letter-spacing: 1px;
+}
+.header-bottom button:hover{
+    background-color: var(--pink);
+    color: var(--deep-rose);
+}
+/* responsive */
+/* Tablet screens */
+@media (max-width: 768px) {
+    .header-bottom{
+        display: none;
+    }
+}
+/* Mobile screens */
+@media (max-width: 480px) {
+    .header-bottom{
+        display: none;
+    }
+}
+/* responsive */
+/* ================= Header ======================== */
+
+/* ================= Footer ======================== */
+.footer {
+    width: 100%;
+    height: 18vh;
+    background-color: var(--card-bg);
+}
+.footer-top{
+    width: 100%;
+    height: 15vh;
+    padding-top: 0.8rem;
+    background-color: var(--card-bg);
+}
+.footer-top h6{
+    font-family: 'header';
+    color: var(--primary);
+}
+.footer-top i{
+    color: var(--primary);
+}
+.footer-top i:hover{
+    color: var(--hot-pink);
+    cursor: pointer;
+}
+.footer-top li{
+    font-size: 85%;
+}
+.footer-top li:hover{
+    color: var(--hot-pink);
+    cursor: pointer;
+}
+.footer-bottom {
+    width: 100%;
+    height: 3vh;
+    background-color: var(--primary);
+}
+.footer-bottom p{
+    text-align: center;
+    color: var(--bg);
+    font-size: 80%;
+    letter-spacing: 1px;
+    font-family: 'header';
+}
+/* responsive */
+/* Tablet screens */
+@media (max-width: 768px) {
+    .footer {
+        height: auto;
+        width: 100%;
+    }
+    .footer-top {
+        height: auto;
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+    .footer-bottom {
+        height: auto;
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+    .footer-top h6 {
+        font-size: 80%;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+    .footer {
+        height: auto;
+        width: 100%;
+    }
+    .footer-top {
+        height: auto;
+        padding: 0.5rem 0;
+        text-align: center;
+        width: 100%;
+    }
+    .footer-top h6 {
+        margin-top: 1rem;
+    }
+    .footer-top i {
+        font-size: 1.2rem;
+        margin: 0 0.3rem;
+    }
+    .footer-top li {
+        font-size: 80%;
+    }
+    .footer-bottom {
+        height: auto;
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+}
+/* responsive */
+/* ================= Footer ======================== */
